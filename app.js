@@ -291,44 +291,39 @@
 //                   Final PRoject
 //======================================================
 
-class TaskRunner {
-    constructor(config = { async: false }) {
-        this.tasks = new Map();
-        this.config = config;
-        this.executionLogs = [];
+function executeTasks(tasks, callback, config = { delay: 1000 }) {
+    console.log("Excutions Logs");
+    
+    tasks.forEach((task,name) => {
+        setTimeout(() => {
+            task();
+            callback(name);
+        }, config.delay);
     }
-
-    addTask(name, taskFn) {
-        this.tasks.set(name, taskFn);
-    }
-
-    runAll(callback = () => { }) {
-        for (const [name, task] of this.tasks) {
-            this.log(`Starting task: ${name}`);
-
-            if (this.config.async) {
-                setTimeout(() => {
-                    task();
-                    this.log(`Finished task: ${name}`);
-                    callback(name);
-                }, 500);
-            } else {
-                task();
-                this.log(`Finished task: ${name}`);
-                callback(name);
-            }
-        }
-    }
-
-    log(message) {
-        const logEntry = `${new Date().toLocaleTimeString()} - ${message}`;
-        console.log(logEntry);
-        this.executionLogs.push(logEntry);
-    }
-
-    showLogs() {
-        console.log("\n=== Execution Logs ===");
-        this.executionLogs.forEach(log => console.log(log));
-    }
+    );
 }
+const tasks = new Map();
+
+tasks.set("Task A", () => console.log("Task A executed"));
+tasks.set("Task B", () => console.log("Task B executed"));
+tasks.set("Task C", () => console.log("Task C executed"));
+console.log(tasks);
+
+executeTasks(
+    tasks,
+    (taskName) => console.log(`Callback after ${taskName}`),
+    { delay: 1000 }
+);
+
+// Excutions Logs
+// Task A executed
+// Callback after Task A
+// Task B executed
+// Callback after Task B
+// Task C executed
+// Callback after Task C
+
+
+// First all the setTimeout runed immediantly 
+// Second Like i wanted to make them go one by one 
 
