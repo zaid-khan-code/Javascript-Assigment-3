@@ -18,6 +18,7 @@
 // console.log(set.size);
 
 // set.add(NaN)
+// set.add("zaid Khan") 
 // console.log(set);
 // console.log(set.size);
 // set.add(NaN)
@@ -95,23 +96,21 @@
 
 
 // function student(name = "Unkonwn",rollNum = "0000") {
-//     console.log(`Input values : first = ${name}
-//         ,Second =  ${rollNum}`);
+//     // console.log(`Input values : first = ${name}
+//     //     ,Second =  ${rollNum}`);
 //     return `Hello Dear Student named ${name} and roll number ${rollNum}`
-
 // }
 
-// // let student1 = student(undefined,undefined);
-// // console.log(`First with Undefined :${student1}`);
-
+// let student1 = student();
+// console.log(`First with Undefined :${student1}`);
 
 
 // let student2 = student(null,undefined);
 // console.log(`First with Undefined :${student2}`);
 
 
-// let student3 = student(null,null);
-// console.log(`First with Undefined :${student3}`);
+    // let student3 = student(null,null);
+    // console.log(`First with Undefined :${student3}`);
 
 
 // let student4 = student(undefined,null);
@@ -125,8 +124,15 @@
 
 
 
+// function fuctionWithDefualtParameters(fun = (num)=>num + 2,obj = {name:"Zaid Khan",age :99}) {
+//     for (let i = 0; i <= 10; i++) {
+//         console.log(fun(i));
+//         console.log(obj);
+//     }
 
 
+// }
+// fuctionWithDefualtParameters((i)=>`Hello World ${i}`,{name:"Ali",age:12})
 
 
 
@@ -291,39 +297,39 @@
 //                   Final PRoject
 //======================================================
 
-function executeTasks(tasks, callback, config = { delay: 1000 }) {
-    console.log("Excutions Logs");
+// function executeTasks(tasks, callback, config = { delay: 1000 }) {
+//     console.log("Excutions Logs");
     
-    tasks.forEach((task,name) => {
-        setTimeout(() => {
-            task();
-            callback(name);
-        }, config.delay);
-    }
-    );
-}
-const tasks = new Map();
+//     tasks.forEach((task,name) => {
+//         setTimeout(() => {
+//             task();
+//             callback(name);
+//         }, config.delay);
+//     }
+//     );
+// }
+// const tasks = new Map();
 
-tasks.set("Task A", () => console.log("Task A executed"));
-tasks.set("Task B", () => console.log("Task B executed"));
-tasks.set("Task C", () => console.log("Task C executed"));
-console.log(tasks);
+// tasks.set("Task A", () => console.log("Task A executed"));
+// tasks.set("Task B", () => console.log("Task B executed"));
+// tasks.set("Task C", () => console.log("Task C executed"));
+// console.log(tasks);
 
-executeTasks(
-    tasks,
-    (taskName) => console.log(`Callback after ${taskName}`),
-    { delay: 1000 }
-);
+// executeTasks(
+//     tasks,
+//     (taskName) => console.log(`Callback after ${taskName}`),
+//     { delay: 1000 }
+// );
 
-// Excutions Logs
-// Task A executed
-// Callback after Task A
-// Task B executed
-// Callback after Task B
-// Task C executed
-// Callback after Task C
+// // Excutions Logs
+// // Task A executed
+// // Callback after Task A
+// // Task B executed
+// // Callback after Task B
+// // Task C executed
+// // Callback after Task C
 
 
-// First all the setTimeout runed immediantly 
-// Second Like i wanted to make them go one by one 
+// // First all the setTimeout runed immediantly 
+// // Second Like i wanted to make them go one by one 
 
